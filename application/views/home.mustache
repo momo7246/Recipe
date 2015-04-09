@@ -1,0 +1,369 @@
+{{> header }}
+
+{{> nav_bar}}
+
+<div id="page-wrapper">
+
+            <div class="container-fluid">
+
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h1 class="page-header">
+                            Report
+                        </h1>
+                    </div>
+                </div>
+
+                <!--<div class="row">
+                	<div class="col-lg-6"></div>
+                    <div class="col-lg-3 col-md-6">
+                        <div class="panel panel-primary">
+                            <div class="panel-heading">
+                                <div class="row">
+                                    <div class="col-xs-3">
+                                        <i class="fa fa-users fa-5x"></i>
+                                    </div>
+                                    <div class="col-xs-9 text-right">
+                                        <div class="huge">26</div>
+                                        <div>Student enrolled in </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <a href="#enrollReport">
+                                <div class="panel-footer">
+                                    <span class="pull-left">View Details</span>
+                                    <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                                    <div class="clearfix"></div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <div class="panel panel-red">
+                            <div class="panel-heading">
+                                <div class="row">
+                                    <div class="col-xs-3">
+                                        <i class="fa fa-warning fa-5x"></i>
+                                    </div>
+                                    <div class="col-xs-9 text-right">
+                                        <div class="huge">12</div>
+                                        <div>Student Total</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <a href="#studentReport">
+                                <div class="panel-footer">
+                                    <span class="pull-left">View Details</span>
+                                    <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                                    <div class="clearfix"></div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+
+                </div>-->
+
+                <!-- report for each student: what course they enrolled -->
+                <div id="studentReport" class="row">
+                    <div class="col-lg-6">
+                        <div class="panel panel-default">
+	                        <div class="panel-heading">
+	                            Student Report
+	                        </div>
+
+	                        <div class="panel-body">
+	                        	<div class="table-responsive">
+	                                <table class="table table-hover">
+	                                    <thead>
+	                                        <tr>
+	                                            <th>#</th>
+	                                            <th>First Name</th>
+	                                            <th>Last Name</th>
+	                                        </tr>
+	                                    </thead>
+	                                    <tbody>
+	                                        <tr>
+	                                            <td>1</td>
+	                                            <td>Mark</td>
+	                                            <td>Otto</td>
+	                                        </tr>
+	                                        <tr>
+	                                            <td>2</td>
+	                                            <td>Jacob</td>
+	                                            <td>Thornton</td>
+	                                        </tr>
+	                                        <tr>
+	                                            <td>3</td>
+	                                            <td>Larry</td>
+	                                            <td>the Bird</td>
+	                                        </tr>
+	                                    </tbody>
+	                                </table>
+	                            </div>
+	                        </div>
+	                    </div>
+                    </div>
+
+                    <div class="col-lg-6">
+                        <div class="well">
+	                        <h4>Enrolled Course</h4>
+	                        <div class="panel-body">
+                            <!-- Nav tabs -->
+                            <ul class="nav nav-tabs">
+                                <li class="active"><a href="#course" data-toggle="tab">Course</a>
+                                </li>
+                                <li><a href="#menu" data-toggle="tab">Menu</a>
+                                </li>
+                            </ul>
+
+                            <!-- Tab panes -->
+                            <div class="tab-content">
+                                <div class="tab-pane fade in active" id="course">
+                                   	<div class="table-responsive">
+		                                <table class="table">
+		                                    <thead>
+		                                        <tr>
+		                                            <th>Course Name</th>
+		                                            <th>Date</th>
+		                                        </tr>
+		                                    </thead>
+		                                    <tbody>
+		                                        <tr>
+		                                            <td>Japanese</td>
+		                                            <td>2/5/2015</td>
+		                                        </tr>
+		                                        <tr>
+		                                            <td>Somtum</td>
+		                                            <td>10/12/2015</td>
+		                                        </tr>
+		                                    </tbody>
+		                                </table>
+                            		</div>
+                                </div>
+                                <div class="tab-pane fade" id="menu">
+                                </div>
+                            </div>
+                        </div>
+	                    </div>
+                    </div>
+                </div>
+
+                <!-- report for course enrollment in each month -->
+                <div id="enrollReport" class="row">
+
+                    <div class="col-lg-12">
+
+                        <div class="panel panel-default">
+	                        <div class="panel-heading">
+	                            Enrollment Report
+	                        </div>
+	                        <!-- .panel-heading -->
+	                        <div class="panel-body">
+
+	                        	<div class="row">
+                                	<div class="col-sm-12">
+                                		<div class="dataTables_length" id="dataTables-example_length">
+                                			<label>Select Year: 
+                                				<select name="dataTables-example_length" aria-controls="dataTables-example" class="form-control input-sm">
+                                					<option value="2015">2015</option>
+                                					<option value="2016">2016</option>
+                                					<option value="2017">2017</option>
+                                					<option value="2018">2018</option>
+                                				</select>
+                                			</label>
+                                		</div>
+                                	</div>
+                                </div>
+
+	                            <div class="panel-group" id="accordion">
+	                                <div class="panel panel-default">
+	                                    <div class="panel-heading">
+	                                        <h4 class="panel-title">
+	                                            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">January total: 10</a>
+	                                        </h4>
+	                                    </div>
+	                                    <div id="collapseOne" class="panel-collapse collapse in">
+	                                        <div class="panel-body">
+	                                            <div class="row">
+	                                            	<div class="col-sm-12">
+	                                            		<div class="table-responsive">
+							                                <table class="table table-hover">
+							                                    <thead>
+							                                        <tr>
+							                                            <th>#</th>
+							                                            <th>Course Name</th>
+							                                            <th>Total</th>
+							                                        </tr>
+							                                    </thead>
+							                                    <tbody>
+							                                        <tr>
+							                                            <td>1</td>
+							                                            <td>Japanese</td>
+							                                            <td>1</td>
+							                                        </tr>
+							                                        <tr>
+							                                            <td>2</td>
+							                                            <td>Thai food</td>
+							                                            <td>3</td>
+							                                        </tr>
+							                                        <tr>
+							                                            <td>3</td>
+							                                            <td>Making bread</td>
+							                                            <td>6</td>
+							                                        </tr>
+							                                    </tbody>
+							                                </table>
+							                            </div>
+	                                            	</div>
+	                                            </div>
+
+	                                        </div>
+	                                    </div>
+	                                </div>
+	                                <div class="panel panel-default">
+	                                    <div class="panel-heading">
+	                                        <h4 class="panel-title">
+	                                            <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">February total: 1</a>
+	                                        </h4>
+	                                    </div>
+	                                    <div id="collapseTwo" class="panel-collapse collapse">
+	                                        <div class="panel-body">
+	                                        </div>
+	                                    </div>
+	                                </div>
+	                                <div class="panel panel-default">
+	                                    <div class="panel-heading">
+	                                        <h4 class="panel-title">
+	                                            <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree">March</a>
+	                                        </h4>
+	                                    </div>
+	                                    <div id="collapseThree" class="panel-collapse collapse">
+	                                        <div class="panel-body">
+	                                            March
+	                                        </div>
+	                                    </div>
+	                                </div>
+	                                <div class="panel panel-default">
+	                                    <div class="panel-heading">
+	                                        <h4 class="panel-title">
+	                                            <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree">April</a>
+	                                        </h4>
+	                                    </div>
+	                                    <div id="collapseThree" class="panel-collapse collapse">
+	                                        <div class="panel-body">
+	                                            April
+	                                        </div>
+	                                    </div>
+	                                </div>
+	                                <div class="panel panel-default">
+	                                    <div class="panel-heading">
+	                                        <h4 class="panel-title">
+	                                            <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree">May</a>
+	                                        </h4>
+	                                    </div>
+	                                    <div id="collapseThree" class="panel-collapse collapse">
+	                                        <div class="panel-body">
+	                                            May
+	                                        </div>
+	                                    </div>
+	                                </div>
+	                                <div class="panel panel-default">
+	                                    <div class="panel-heading">
+	                                        <h4 class="panel-title">
+	                                            <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree">June</a>
+	                                        </h4>
+	                                    </div>
+	                                    <div id="collapseThree" class="panel-collapse collapse">
+	                                        <div class="panel-body">
+	                                            June
+	                                        </div>
+	                                    </div>
+	                                </div>
+	                                <div class="panel panel-default">
+	                                    <div class="panel-heading">
+	                                        <h4 class="panel-title">
+	                                            <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree">July</a>
+	                                        </h4>
+	                                    </div>
+	                                    <div id="collapseThree" class="panel-collapse collapse">
+	                                        <div class="panel-body">
+	                                            July
+	                                        </div>
+	                                    </div>
+	                                </div>
+	                                <div class="panel panel-default">
+	                                    <div class="panel-heading">
+	                                        <h4 class="panel-title">
+	                                            <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree">August</a>
+	                                        </h4>
+	                                    </div>
+	                                    <div id="collapseThree" class="panel-collapse collapse">
+	                                        <div class="panel-body">
+	                                            August
+	                                        </div>
+	                                    </div>
+	                                </div>
+	                                <div class="panel panel-default">
+	                                    <div class="panel-heading">
+	                                        <h4 class="panel-title">
+	                                            <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree">September</a>
+	                                        </h4>
+	                                    </div>
+	                                    <div id="collapseThree" class="panel-collapse collapse">
+	                                        <div class="panel-body">
+	                                            September
+	                                        </div>
+	                                    </div>
+	                                </div>
+	                                <div class="panel panel-default">
+	                                    <div class="panel-heading">
+	                                        <h4 class="panel-title">
+	                                            <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree">October</a>
+	                                        </h4>
+	                                    </div>
+	                                    <div id="collapseThree" class="panel-collapse collapse">
+	                                        <div class="panel-body">
+	                                            October
+	                                        </div>
+	                                    </div>
+	                                </div>
+	                                <div class="panel panel-default">
+	                                    <div class="panel-heading">
+	                                        <h4 class="panel-title">
+	                                            <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree">November</a>
+	                                        </h4>
+	                                    </div>
+	                                    <div id="collapseThree" class="panel-collapse collapse">
+	                                        <div class="panel-body">
+	                                            November
+	                                        </div>
+	                                    </div>
+	                                </div>
+	                                <div class="panel panel-default">
+	                                    <div class="panel-heading">
+	                                        <h4 class="panel-title">
+	                                            <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree">December</a>
+	                                        </h4>
+	                                    </div>
+	                                    <div id="collapseThree" class="panel-collapse collapse">
+	                                        <div class="panel-body">
+	                                            December
+	                                        </div>
+	                                    </div>
+	                                </div>
+	                            </div>
+
+	                        </div>
+	                    </div>
+
+                    </div>
+                </div>
+
+            </div>
+            <!-- /.container-fluid -->
+
+        </div>
+
+</div>
+
+{{> footer}}

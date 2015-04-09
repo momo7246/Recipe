@@ -1,0 +1,221 @@
+{{> header }}
+
+{{> nav_bar}}
+
+<div id="page-wrapper">
+
+	<div class="container-fluid">
+
+		<div class="row">
+			<div class="col-lg-12">
+				<h1 class="page-header">
+					Manage Course
+					<a href="/food_course/course/addCourse" class="btn btn-primary btn-lg" role="button">Add Course</a>
+				</h1>
+			</div>
+		</div>
+
+		{{#add}}
+
+			<form action="/food_course/course/addCourse">
+			<div class="col-xs-12">
+
+			{{#status.success}}
+				<div class="alert alert-success">
+                    Successful Add Course <a href="/food_course/course" class="alert-link">Back to course page</a>
+                </div>
+			{{/status.success}}
+
+			{{#status.error}}
+				<div class="alert alert-danger">
+                    This course name is already existed. <a href="/food_course/course" class="alert-link">Back to course page</a>
+                </div>
+			{{/status.error}}			
+
+				<div class="panel panel-default">
+                	<div class="panel-heading">
+                		Course Information
+                	</div>
+                	<div class="panel-body">
+                		<div class="course-header">
+	                		<div class="item">
+		                		<div class="form-group">
+									<label>Header TH</label>
+									<input class="form-control"{{#content.headerTH}} value="{{content.headerTH}}"{{/content.headerTH}} name="headerTH"/>
+								</div>
+							</div>
+							<div class="item">
+		                		<div class="form-group">
+									<label>Header EN</label>
+									<input class="form-control"{{#content.headerEN}} value="{{content.headerEN}}"{{/content.headerEN}} name="headerEN"/>
+								</div>
+							</div>
+							<div class="item">
+		                		<div class="form-group">
+									<label>Header CN</label>
+									<input class="form-control"{{#content.headerCN}} value="{{content.headerCN}}"{{/content.headerCN}} name="headerCN"/>
+								</div>
+							</div>
+						</div>
+
+						<div class="form-group course-selection">
+                            <label class="checkbox-inline">
+                                <input type="checkbox" name="AFF" id="enablePrice" value="1" checked="checked">Not Available For Free
+                            </label>
+                            <label class="checkbox-inline">
+                                <input type="checkbox" name="show" id="show" value="1">Show in shop zone when login
+                            </label>
+                        </div>
+
+						<div class="price-info">
+							<div class="form-group input-group price">
+	                            <span name="price" class="input-group-addon">BAHT</span>
+	                            <input type="text" name="price" class="form-control" placeholder="Price"{{#content.price}} value="{{content.price}}"{{/content.price}}>
+	                        </div>
+	                        <div class="form-group input-group discount">
+                                <input type="text" name="discount" class="form-control" placeholder="Discount"{{#content.discount}} value="{{content.discount}}"{{/content.discount}}>
+                                <span class="input-group-addon">%</span>
+                            </div>
+                        </div>
+
+                	</div>
+
+                </div>
+
+                <button type="submit" class="btn btn-default">Submit</button>
+			</div>
+			</form>
+		{{/add}}
+
+		{{#view}}
+			<div class="col-lg-12">
+				<div class="table-responsive">
+					<table class="table table-hover">
+						<thead>
+							<tr>
+								<th style="visibility: hidden;"></th>
+								<th>HeaderTH</th>
+								<th>HeaderEN</th>
+								<th>HeaderCN</th>
+								<th>price</th>
+								<th></th>
+							</tr>
+							</thead>
+							<tbody>
+							{{#content}}
+								<tr>
+									<td style="visibility: hidden;">{{ID}}</td>
+									<td>{{#headerTH}}{{headerTH}}{{/headerTH}}{{^headerTH}}-{{/headerTH}}</td>
+									<td>{{#headerEN}}{{headerEN}}{{/headerEN}}{{^headerEN}}-{{/headerEN}}</td>
+									<td>{{#headerCN}}{{headerCN}}{{/headerCN}}{{^headerCN}}-{{/headerCN}}</td>
+									<td>{{#price}}{{price}}{{/price}}{{^price}}{{price}}{{/price}}</td>
+									<td>
+										<a class="btn btn-primary btn-xs" href="/food_course/course/editCourse?id={{ID}}">Edit</a>
+										<a class="btn btn-danger btn-xs" href="/food_course/course/deleteCourse?id={{ID}}">Delete</a>
+									</td>
+								</tr>
+							{{/content}}
+							</tbody>
+						</table>
+					</div>
+				</div>
+
+				{{#hasPagination}}
+					<div class="col-sm-6 col-sm-offset-6">
+						<div class="pagination-table">
+							<ul class="pagination">
+							{{#pagination}}
+								<li class="paginate_button">
+									<a href="{{href}}">{{page}}</a>
+								</li>
+							{{/pagination}}
+							</ul>
+						</div>
+					</div>
+				{{/hasPagination}}
+
+		{{/view}}
+
+		{{#delete}}
+
+			{{#status.delete}}
+				<div class="alert alert-success">
+	                Successful Deleted Course <a href="/food_course/course" class="alert-link">Back to course page</a>
+	            </div>
+	        {{/status.delete}}
+
+
+		{{/delete}}
+
+		{{#edit}}
+			{{#content}}
+
+			<form action="/food_course/course/updateCourse/{{ID}}">
+			<div class="col-xs-12">
+			
+				<div class="panel panel-default">
+                	<div class="panel-heading">
+                		Course Information
+                	</div>
+                	<div class="panel-body">
+                		<div class="course-header">
+	                		<div class="item">
+		                		<div class="form-group">
+									<label>Header TH</label>
+									<input class="form-control" value="{{headerTH}}" name="headerTH"/>
+								</div>
+							</div>
+							<div class="item">
+		                		<div class="form-group">
+									<label>Header EN</label>
+									<input class="form-control" value="{{headerEN}}" name="headerEN"/>
+								</div>
+							</div>
+							<div class="item">
+		                		<div class="form-group">
+									<label>Header CN</label>
+									<input class="form-control" value="{{headerCN}}" name="headerCN"/>
+								</div>
+							</div>
+						</div>
+
+						<div class="form-group course-selection">
+                            <label class="checkbox-inline">
+                                <input type="checkbox" name="AFF" id="enablePrice" value="1" checked="checked">Not Available For Free
+                            </label>
+                            <label class="checkbox-inline">
+                                <input type="checkbox" name="show" id="show" value="1">Show in shop zone when login
+                            </label>
+                        </div>
+
+						<div class="price-info">
+							<div class="form-group input-group price">
+	                            <span name="price" class="input-group-addon">BAHT</span>
+	                            <input type="text" name="price" class="form-control" placeholder="Price" value="{{price}}">
+	                        </div>
+	                        <div class="form-group input-group discount">
+                                <input type="text" name="discount" class="form-control" placeholder="Discount" value="{{discount}}">
+                                <span class="input-group-addon">%</span>
+                            </div>
+                        </div>
+
+                	</div>
+
+                </div>
+
+                <button type="submit" class="btn btn-default">Submit</button>
+			</div>
+			</form>
+			{{/content}}
+			
+		{{/edit}}
+
+
+	</div>
+	<!-- /.container-fluid -->
+
+</div>
+
+</div>
+
+{{> footer}}
