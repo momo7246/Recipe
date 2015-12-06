@@ -51,10 +51,10 @@ class Admin_model extends CI_Model
 	{
 		$this->db->from($this->tableName);
 		if ($page == 1) {
-			$this->db->limit(10);
+			$this->db->limit(25);
     	} else {
-        	$offset = ($page - 1) * 10;
-        	$this->db->limit(10, $offset);
+        	$offset = ($page - 1) * 25;
+        	$this->db->limit(25, $offset);
     	}
     	
     	$this->db->order_by('ID', $sort);

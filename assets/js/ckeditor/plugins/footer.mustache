@@ -1,0 +1,25 @@
+	<script src="http://thevschooldb.com/vschool/assets/js/jquery.js"></script>
+	<script src="http://thevschooldb.com/vschool/assets/js/food.js"></script>
+	<script src="http://thevschooldb.com/vschool/assets/js/media.js"></script>
+	<script src="http://thevschooldb.com/vschool/assets/js/enrollment.js"></script>
+	<script src="http://thevschooldb.com/vschool/assets/js/subtitle.js"></script>
+
+	<!-- Bootstrap Core JavaScript -->
+	<script src="http://thevschooldb.com/vschool/assets/js/bootstrap.min.js"></script>
+	
+	<script type="text/javascript" src="http://thevschooldb.com/vschool/assets/js/uploadify/jquery.uploadify.min.js"></script>
+
+	<script type="text/javascript">
+		var areas = ['tingredientTH', 'tingredientEN', 'tingredientCN','thowtoTH', 'thowtoEN', 'thowtoCN', 'tservingTH', 'tservingEN', 'tservingCN'];
+		for (var index = 0; index < areas.length; ++index) {
+			CKEDITOR.replace(areas[index] ,{
+				filebrowserBrowseUrl: '/vschool/media/browseImage',
+				filebrowserImageUploadUrl: '/vschool/media/uploadImageFromTextArea',
+			});
+		}
+
+	</script>
+	
+	</body>
+<!-- Footer -->
+</html>

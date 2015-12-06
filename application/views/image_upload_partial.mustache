@@ -1,0 +1,25 @@
+<link href="http://localhost:8888/food_course/assets/css/bootstrap.min.css" rel="stylesheet">
+<link href="http://localhost:8888/food_course/assets/css/sb-admin.css" rel="stylesheet">
+<script type="text/javascript" src="http://localhost:8888/food_course/assets/js/ckeditor/ckeditor.js"></script>
+
+<div class="row">
+	<div class="col-xs-12">
+		<div>
+			<ul class="images-display clearfix">
+				{{#photos}}
+					<li>
+						<a>
+							<img src="{{url}}" width="150" height="150">
+						</a>
+					</li>
+				{{/photos}}
+			</ul>
+		</div>
+	</div>
+	<div class="col-xs-12">
+		<button id="imageBtn" type="button" class="btn btn-default">Select</button>
+	</div>
+</div>
+
+<script src="http://localhost:8888/food_course/assets/js/jquery.js"></script>
+<script src="http://localhost:8888/food_course/assets/js/media.js"></script>

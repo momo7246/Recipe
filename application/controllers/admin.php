@@ -1,8 +1,12 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
+<<<<<<< Updated upstream
+=======
+
+>>>>>>> Stashed changes
 class Admin extends Base_Controller {
 
-	protected $table = 'Admin';
+	protected $table = 'Student';
 
 	function __construct()
 	{
@@ -12,16 +16,16 @@ class Admin extends Base_Controller {
 	public function index()
 	{	
 		$data['view'] = true;
-		$data['pagination'] = $this->getPagination($this->table, strtolower($this->table));
+		$data['pagination'] = $this->getPagination($this->table, 'admin');
 		$data['hasPagination'] = !empty($data['pagination']);
 
 		$page = ($this->uri->segment(3)) ? $this->uri->segment(3) : 1;
-		$data['content'] = $this->admin_model->getAdminByPage($page);
+		$data['content'] = $this->student_model->getStudentByPage($page);
 
 		echo $this->m->render('admin', $data);
 	}
 
-	public function editAdmin($output = array())
+	public function editStudent($output = array())
 	{
 		$data['edit'] = true;
 		$data = array_merge($data, $output);
@@ -33,19 +37,38 @@ class Admin extends Base_Controller {
 			$id = $q['id'];
 		}
 		
-		$data['admin'] = $this->admin_model->getAdminFromId($id);
+		$data['student'] = $this->student_model->getStudentFromId($id);
 
 		echo $this->m->render('admin', $data);
 	}
 
-	public function deleteAdmin()
+	public function deleteStudent()
 	{
 		$data['delete'] = true;
 		$q = $this->getQuery();
-		$id = $q['id'];
+		if (!empty($q)) {
+			$id = $q['id'];
+		}
 
-		$data['status']['delete'] = $this->admin_model->deleteAdmin($id);
-		
+		$input = $this->input->post();
+
+		if (empty($input)) {
+			$hasPayment = $this->payment_model->getPaymentFromStudentId($id);
+
+			if (!empty($hasPayment)) {
+				$data['hasPayment'] = true;
+				$data['count'] = count($hasPayment);
+				$data['id'] = $id;
+			} else {
+				$data['status']['delete'] = true;
+				$this->student_model->deleteStudent($id);
+			}
+		} else {
+			$data['status']['delete'] = true;
+			$this->student_model->deleteStudent($input['id']);
+			$this->payment_model->deletePayment($input['id']);
+		}
+
 		echo $this->m->render('admin', $data);
 	}
 
@@ -68,14 +91,14 @@ class Admin extends Base_Controller {
 		$this->editAdmin($data);
 	}
 
-	public function addAdmin()
+	public function addStudent()
 	{
 		$data['add'] = true;
 
 		echo $this->m->render('admin', $data);
 	}
 
-	public function addNewAdmin()
+	public function addNewStudent()
 	{
 		$data['add'] = true;
 		$q = $this->getQuery();
@@ -86,14 +109,21 @@ class Admin extends Base_Controller {
 		} else {
 			unset($q['re-password']);
 
-			$existed = $this->admin_model->checkUsernameExisted($q['username']);
-			if (!$existed) {
-				$id = $this->admin_model->addAdmin($q);
+			$result = $this->student_model->checkUserExisted(array(
+				'Username' => $q['username'],
+				'Email' => $q['email']
+			));
+
+			if (!$result['existed']) {
+				$id = $this->student_model->register($q);
 				if (!empty($id)) {
 					$data['status']['add'] = true;
 				}
 			} else {
-				$data['status']['error'] = true;
+				$data['status'] = array(
+					'error' => true,
+					'message' => $result['message']
+				);
 			}
 
 		}

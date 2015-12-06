@@ -1,8 +1,39 @@
 	<script src="http://localhost:8888/food_course/assets/js/jquery.js"></script>
 	<script src="http://localhost:8888/food_course/assets/js/food.js"></script>
+<<<<<<< Updated upstream
 
 	<!-- Bootstrap Core JavaScript -->
 	<script src="http://localhost:8888/food_course/assets/js/bootstrap.min.js"></script>
+=======
+	<script src="http://localhost:8888/food_course/assets/js/media.js"></script>
+	<script src="http://localhost:8888/food_course/assets/js/enrollment.js"></script>
+	<script src="http://localhost:8888/food_course/assets/js/subtitle.js"></script>
+	<script src="http://localhost:8888/food_course/assets/js/forgetPassword.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+	<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+
+	<!-- Bootstrap Core JavaScript -->
+	<script src="http://localhost:8888/food_course/assets/js/bootstrap.min.js"></script>
+
+	<script type="text/javascript" src="http://localhost:8888/food_course/assets/js/uploadify/jquery.uploadify.min.js"></script>
+
+	<script type="text/javascript">
+		<!--CKEDITOR.config.extraPlugins = 'simple-image-browser';-->
+
+		<!--CKEDITOR.config.simpleImageBrowserURL = '/food_course/media/browseImage';-->
+
+		var areas = ['tingredientTH', 'tingredientEN', 'tingredientCN','thowtoTH', 'thowtoEN', 'thowtoCN'];
+		for (var index = 0; index < areas.length; ++index) {
+			CKEDITOR.replace(areas[index], {
+				"extraPlugins" : 'imgbrowse',
+				"filebrowserImageUploadUrl": '/food_course/media/uploadImageFromTextArea',
+				'filebrowserImageBrowseUrl': 'http://localhost:8888/food_course/assets/js/ckeditor/plugins/imgbrowse/imgbrowse.html',
+			});
+		}
+
+	</script>
+>>>>>>> Stashed changes
 	
 	</body>
 <!-- Footer -->

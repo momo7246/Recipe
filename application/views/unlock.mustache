@@ -1,0 +1,92 @@
+{{> header }}
+
+{{> nav_bar}}
+
+<div id="page-wrapper">
+
+	<div class="container-fluid">
+
+		<div class="row">
+			<div class="col-lg-12">
+				<h1 class="page-header">
+					Unlock Course/Menu
+				</h1>
+			</div>
+		</div>
+
+		{{#view}}
+
+		<div class="col-xs-12 unlock-course">
+
+			<div class="alert alert-info">
+				This keyword will be looked up in username and email
+			</div>
+
+			<div class="alert alert-success hide success-payment">
+				Successful unlocked Course/Menu for student
+			</div>
+
+			<div class="form-group input-group fi-student">
+				<input id="keyword" name="keyword" type="text" class="form-control">
+				<span class="input-group-btn"><button id="searchStudent" class="btn btn-default" type="button"><i class="fa fa-search"></i> Search student</button></span>
+			</div>
+			<ul class="li-student hide">
+			</ul>
+
+			<form action="/food_course/unlock/addPayment">
+			<div class="st-course">
+				<div class="col-xs-6">
+				<select class="form-control ul-course-sl">
+					<option value="0">Select Course</option>
+					{{#course}}
+						<option value="{{ID}}">{{name}}</option>
+					{{/course}}
+				</select>
+				</div>
+
+				<div class="col-xs-6" style="padding-bottom: 15px;">
+				<select class="form-control ul-menu-sl">
+					<option value="0">Select Menu</option>
+					{{#menu}}
+						<option value="{{ID}}" data-value="{{courseID}}">{{name}}</option>
+					{{/menu}}
+				</select>
+				</div>
+			</div>
+
+			<input class="hide" name="studentID" value="">
+
+			<button id="paymentConfirm" type="button" class="btn btn-outline btn-primary btn-lg btn-block">Confirm</button>
+
+			</form>
+
+		</div>
+		<div class="col-xs-12 delete-student-enroll">
+			<h3>Delete Enrollment</h3>
+			<div class="table-responsive">
+				<table class="table table-hover">
+					<thead>
+						<tr>
+							<th>Course Name</th>
+							<th>Course Type</th>
+							<th>Action</th>
+						</tr>
+					</thead>
+					<tbody>
+					</tbody>
+				</table>
+			</div>
+		</div>
+
+		{{/view}}
+
+
+
+	</div>
+	<!-- /.container-fluid -->
+
+</div>
+
+</div>
+
+{{> footer}}

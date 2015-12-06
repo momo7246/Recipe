@@ -9,8 +9,788 @@ class Menu extends Base_Controller {
 		parent::__construct();
 	}
 
+<<<<<<< Updated upstream
 	public function index()
 	{	
 		var_dump("hello"); exit;
 	}
 }
+=======
+		<div class="row">
+			<div class="col-lg-12">
+				<h1 class="page-header">
+					Manage Menu
+					<a href="/food_course/menu/addMenu" class="btn btn-primary btn-lg" role="button">Add Menu</a>
+				</h1>
+			</div>
+		</div>
+
+		{{#add}}
+
+		<div class="col-xs-12 menu-information">
+
+			<ul class="nav nav-pills" id="menuStep">
+				<li class="active"><a class="tab-gray-light" href="#step1">Information</a>
+				</li>
+				<li><a class="tab-gray-light" href="#step2">Video</a>
+				</li>
+				<li><a class="tab-gray-light" href="#step3">Cover Image</a>
+				</li>
+				<li><a class="tab-gray-light" href="#step4">Done!</a>
+				</li>
+			</ul>
+			<div class="progress progress-mini">
+				<div class="progress-bar progress-bar-gray-light" style="width: 25%;"></div>
+			</div>
+
+			<div class="tab-content">
+
+				<input id="menuId" value="" style="display:none;">
+
+				<div class="tab-pane fade in active well" id="step1">
+					<form id="stepOne" action="/food_course/menu/stepOne">
+
+						<div class="menu-selection">
+							<select class="form-control course-selection">
+								<option value="0">Select Course</option>
+								{{#course}}
+									<option value="{{ID}}">{{name}}</option>
+								{{/course}}
+							</select>
+
+							<select class="form-control country-selection">
+								<option value="">Select Country</option>
+								{{#countries}}
+									<option value="{{value}}">{{name}}</option>
+								{{/countries}}
+							</select>
+						</div>
+
+						<div class="multilanguage">
+							<ul class="nav nav-tabs">
+								<li class="active"><a href="#titleTH" data-toggle="tab"  aria-expanded="">Title Thai</a>
+								</li>
+								<li><a href="#titleEN" data-toggle="tab" aria-expanded="false">Title English</a>
+								</li>
+								<li><a href="#titleCN" data-toggle="tab" aria-expanded="false">Title Chinese</a>
+								</li>
+							</ul>
+
+							<div class="tab-content">
+								<div class="tab-pane fade active in" id="titleTH">
+										<input name="titleTH" class="form-control">
+								</div>
+								<div class="tab-pane fade" id="titleEN">
+										<input name="titleEN" class="form-control">
+								</div>
+								<div class="tab-pane fade" id="titleCN">
+										<input name="titleCN" class="form-control">
+								</div>
+							</div>
+						</div>
+
+						<div class="multilanguage">
+							<ul class="nav nav-tabs">
+								<li class="active"><a href="#subTitleTH" data-toggle="tab"  aria-expanded="">Sub-Title Thai</a>
+								</li>
+								<li><a href="#subTitleEN" data-toggle="tab" aria-expanded="false">Sub-Title English</a>
+								</li>
+								<li><a href="#subTitleCN" data-toggle="tab" aria-expanded="false">Sub-Title Chinese</a>
+								</li>
+							</ul>
+
+							<div class="tab-content">
+								<div class="tab-pane fade active in" id="subTitleTH">
+										<input name="subTitleTH" class="form-control">
+								</div>
+								<div class="tab-pane fade" id="subTitleEN">
+										<input name="subTitleEN" class="form-control">
+								</div>
+								<div class="tab-pane fade" id="subTitleCN">
+										<input name="subTitleCN" class="form-control">
+								</div>
+							</div>
+						</div>
+
+						<div class="multilanguage">
+							<ul class="nav nav-tabs">
+								<li class="active"><a href="#topicTH" data-toggle="tab"  aria-expanded="">topic Thai</a>
+								</li>
+								<li><a href="#topicEN" data-toggle="tab" aria-expanded="false">topic English</a>
+								</li>
+								<li><a href="#topicCN" data-toggle="tab" aria-expanded="false">topic Chinese</a>
+								</li>
+							</ul>
+
+							<div class="tab-content">
+								<div class="tab-pane fade active in" id="topicTH">
+										<input name="topicTH" class="form-control">
+								</div>
+								<div class="tab-pane fade" id="topicEN">
+										<input name="topicEN" class="form-control">
+								</div>
+								<div class="tab-pane fade" id="topicCN">
+										<input name="topicCN" class="form-control">
+								</div>
+							</div>
+						</div>
+
+						<div class="multilanguage">
+							<ul class="nav nav-tabs">
+								<li class="active"><a href="#definitionTH" data-toggle="tab"  aria-expanded="">definition Thai</a>
+								</li>
+								<li><a href="#definitionEN" data-toggle="tab" aria-expanded="false">definition English</a>
+								</li>
+								<li><a href="#definitionCN" data-toggle="tab" aria-expanded="false">definition Chinese</a>
+								</li>
+							</ul>
+
+							<div class="tab-content">
+								<div class="tab-pane fade active in" id="definitionTH">
+									<textarea id="tdefinitionTH" name="definitionTH" class="form-control" rows="3"></textarea>
+								</div>
+								<div class="tab-pane fade" id="definitionEN">
+									<textarea id="tdefinitionEN" name="definitionEN" class="form-control" rows="3"></textarea>
+								</div>
+								<div class="tab-pane fade" id="definitionCN">
+									<textarea id="tdefinitionCN" name="definitionCN" class="form-control" rows="3"></textarea>
+								</div>
+							</div>
+						</div>
+
+						<div class="multilanguage">
+							<ul class="nav nav-tabs">
+								<li class="active"><a href="#ingredientTH" data-toggle="tab"  aria-expanded="">ingredient Thai</a>
+								</li>
+								<li><a href="#ingredientEN" data-toggle="tab" aria-expanded="false">ingredient English</a>
+								</li>
+								<li><a href="#ingredientCN" data-toggle="tab" aria-expanded="false">ingredient Chinese</a>
+								</li>
+							</ul>
+
+							<div class="tab-content">
+								<div class="tab-pane fade active in" id="ingredientTH">
+									<textarea id="tingredientTH" name="ingredientTH" class="form-control ckeditor" rows="3"></textarea>
+								</div>
+								<div class="tab-pane fade" id="ingredientEN">
+									<textarea id="tingredientEN" name="ingredientEN" class="form-control ckeditor" rows="3"></textarea>
+								</div>
+								<div class="tab-pane fade" id="ingredientCN">
+									<textarea id="tingredientCN" name="ingredientCN" class="form-control ckeditor" rows="3"></textarea>
+								</div>
+							</div>
+						</div>
+
+						<div class="multilanguage">
+							<ul class="nav nav-tabs">
+								<li class="active"><a href="#howtoTH" data-toggle="tab"  aria-expanded="">How-To Thai</a>
+								</li>
+								<li><a href="#howtoEN" data-toggle="tab" aria-expanded="false">How-To English</a>
+								</li>
+								<li><a href="#howtoCN" data-toggle="tab" aria-expanded="false">How-To Chinese</a>
+								</li>
+							</ul>
+
+							<div class="tab-content">
+								<div class="tab-pane fade active in" id="howtoTH">
+									<textarea id="thowtoTH" name="howtoTH" class="form-control ckeditor" rows="3"></textarea>
+								</div>
+								<div class="tab-pane fade" id="howtoEN">
+									<textarea id="thowtoEN" name="howtoEN" class="form-control ckeditor" rows="3"></textarea>
+								</div>
+								<div class="tab-pane fade" id="howtoCN">
+									<textarea id="thowtoCN" name="howtoCN" class="form-control ckeditor" rows="3"></textarea>
+								</div>
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label class="checkbox-inline">
+								<input type="checkbox" name="AFF" value="1">Available for free
+							</label>
+							<div class="price-selection">
+								<label class="checkbox-inline">
+									<input type="checkbox" name="coursePrice" value="1">Course Price
+								</label>
+								<label class="checkbox-inline">
+									<input type="checkbox" name="ownPrice" value="2" checked="checked">Menu Price
+								</label>
+							</div>
+						</div>
+
+						<div class="price-info">
+							<div class="form-group input-group price">
+								<span name="price" class="input-group-addon">BAHT</span>
+								<input type="text" name="price" class="form-control" placeholder="Price">
+							</div>
+							<div class="form-group input-group discount">
+								<input type="text" name="discount" class="form-control" placeholder="Discount">
+								<span class="input-group-addon">%</span>
+							</div>
+						</div>
+
+						<button id="unbindStep2" type="button" class="btn btn-outline btn-primary btn-lg btn-block">Next</button>
+
+					</form>
+				</div>
+				<div class="tab-pane fade well" id="step2">
+
+					<div class="panel panel-primary col-xs-3 margin-100 hide">
+						<div class="panel-heading">
+							<div class="row">
+								<div class="col-xs-3">
+									<i class="fa fa-video-camera fa-5x"></i>
+								</div>
+								<div class="col-xs-9 text-overflow">
+									<div></div>
+								</div>
+							</div>
+						</div>
+						<a href="#">
+						<div class="panel-footer">
+							<button id="dUpload" type="button" class="btn btn-default" style="width:100%;">Delete</button>
+						</div>
+						</a>
+					</div>
+
+					<div id="addStep2">
+						<div class="form-group file-selection">
+							<label class="radio-inline">
+								<input type="radio" name="path" id="embeded" value="option1" checked="">Embedded File
+							</label>
+							<label class="radio-inline">
+								<input type="radio" name="youtube" id="youtube" value="option2">Upload from youtube
+							</label>
+						</div>
+
+						<div class="form-group btn-file">
+							<form id="uploadEmbeded">
+								<input id="embedded" name="embedded" type="file">
+								<button id="fUpload" type="button" class="btn btn-default">Upload</button>
+							</form>
+						</div>
+						<div class="form-group video-group">
+							<input type="text" class="form-control">
+							<button id="yUpload" type="button" class="btn btn-default">Upload</button>
+						</div>
+
+						<!-- Subtitle -->
+						<div class="panel panel-default">
+							<div class="panel-heading">
+								Subtitle
+							</div>
+							<div class="panel-body">
+								<form id="uploadSubtitles">
+									<div class="col-sm-4">
+										<div class="form-group">
+											<div name="lsubth" class="text-overflow subtitle hide"></div>
+											<label>Thai Subtitle</label>
+											<input name="subth" type="file">
+										</div>
+									</div>
+									<div class="col-sm-4">
+										<div class="form-group">
+											<div name="lsuben" class="text-overflow subtitle hide"></div>
+											<label>English Subtitle</label>
+											<input name="suben" type="file">
+										</div>
+									</div>
+									<div class="col-sm-4">
+										<div class="form-group">
+											<div name="lsubcn" class="text-overflow subtitle hide"></div>
+											<label>Chinese Subtitle</label>
+											<input name="subcn" type="file">
+										</div>
+									</div>
+									<button id="subUpload" type="button" class="btn btn-default">Upload Subtitle</button>
+								</form>
+							</div>
+						</div>
+
+					</div>
+
+					<button id="unbindStep3" type="button" class="btn btn-outline btn-primary btn-lg btn-block">Next</button>
+				</div>
+
+				<div class="tab-pane fade well" id="step3">
+					<div class="panel panel-primary col-xs-5">
+						<div class="panel-heading">
+							<div class="row">
+								<div class="col-xs-3">
+									<img src="" style="max-height: 225px; max-width: 300px;">
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div id="addStep3" class="form-group btn-file">
+						<form>
+						<input id="cover" name="cover" type="file">
+						<button id="cUpload" type="button" class="btn btn-default">Upload</button>
+						</form>
+					</div>
+
+					<button id="unbindStep4" type="button" class="btn btn-outline btn-primary btn-lg btn-block">Next</button>
+				</div>
+
+				<div class="tab-pane fade well" id="step4">
+					<div class="alert alert-success">
+						Succesful inserted the menu <a href="/food_course/menu" class="alert-link">Back to menu page</a>.
+					</div>
+				</div>
+			</div>
+
+		</div>
+
+		{{/add}}
+
+		{{#view}}
+
+			<div class="col-lg-12">
+					<div class="table-responsive">
+						<table class="table table-hover">
+							<thead>
+								<tr>
+									<th style="visibility: hidden;"></th>
+									<th>Course</th>
+									<th>title Thai</th>
+									<th>title English</th>
+									<th>title Chinese</th>
+									<th>price</th>
+									<th>discount</th>
+									<th></th>
+								</tr>
+							</thead>
+							<tbody>
+							{{#content}}
+								<tr>
+									<td style="visibility: hidden;">{{ID}}</td>
+									{{#courseName}}
+										<td>{{{courseName}}}</td>
+									{{/courseName}}
+									{{^courseName}}
+										<td>-</td>
+									{{/courseName}}
+									<td>{{titleTH}}</td>
+									<td>{{titleEN}}</td>
+									<td>{{titleCN}}</td>
+
+									{{#coursePrice}}
+										<td><div class="btn btn-info btn-xs">course price</div></td>
+										<td><div class="btn btn-info btn-xs">course discount</div></td>
+									{{/coursePrice}}
+									{{^coursePrice}}
+										{{#AFF}}
+											<td><div class="btn btn-info btn-xs">free</div></td>
+											<td><div class="btn btn-info btn-xs">free</div></td>
+										{{/AFF}}
+										{{^AFF}}
+											<td>{{price}}</td>
+											<td>{{discount}}</td>
+										{{/AFF}}
+									{{/coursePrice}}
+
+									<td>
+										<a class="btn btn-primary btn-xs" href="/food_course/menu/editMenu?id={{ID}}">Edit</a>
+										<a class="btn btn-danger btn-xs" href="/food_course/menu/deleteMenu?id={{ID}}">Delete</a>
+									</td>
+								</tr>
+							{{/content}}
+							</tbody>
+						</table>
+					</div>
+
+				{{#hasPagination}}
+					<div class="col-sm-6 col-sm-offset-6">
+						<div class="pagination-table">
+							<ul class="pagination">
+							{{#pagination}}
+								<li class="paginate_button">
+									<a href="{{href}}">{{page}}</a>
+								</li>
+							{{/pagination}}
+							</ul>
+						</div>
+					</div>
+				{{/hasPagination}}
+
+		</div>
+
+		{{/view}}
+
+		{{#delete}}
+
+			{{#status.delete}}
+				<div class="alert alert-success">
+					Successful Deleted Menu <a href="/food_course/menu" class="alert-link">Back to menu page</a>
+				</div>
+			{{/status.delete}}
+
+		{{/delete}}
+
+		{{#edit}}
+
+			<div class="col-xs-12 menu-edit">
+				<ul class="nav nav-pills">
+					<li class="active"><a href="#step1" data-toggle="tab" class="tab-gray-light">Information</a>
+					</li>
+					<li><a href="#step2" data-toggle="tab" class="tab-gray-light">Video</a>
+					</li>
+					<li><a href="#step3" data-toggle="tab" class="tab-gray-light">Cover Image</a>
+					</li>
+				</ul>
+
+				<div id="alert-menu-success" class="alert alert-success hide">
+					Succesful edited the menu <a href="/food_course/menu" class="alert-link">Back to menu page</a>.
+				</div>
+
+				<div id="alert-menu-warning" class="alert alert-warning hide">
+					No data has been updated <a href="/food_course/menu" class="alert-link">Back to menu page</a>.
+				</div>
+
+				<div class="tab-content well">
+					<div class="tab-pane fade in active" id="step1">
+						{{#menuContent}}
+
+						<form id="stepOne" action="/food_course/menu/editStepOne" data-value="{{ID}}">
+
+						<div class="menu-selection">
+							<select class="form-control course-selection" select-value="{{courseID}}">
+								<option value="0">Select Course</option>
+								{{#course}}
+									<option value="{{ID}}">{{name}}</option>
+								{{/course}}
+							</select>
+
+							<select class="form-control country-selection" select-value="{{country}}">
+								<option value="">Select Country</option>
+								{{#countries}}
+									<option value="{{value}}">{{name}}</option>
+								{{/countries}}
+							</select>
+						</div>
+
+						<div class="multilanguage">
+							<ul class="nav nav-tabs">
+								<li class="active"><a href="#titleTH" data-toggle="tab"  aria-expanded="">Title Thai</a>
+								</li>
+								<li><a href="#titleEN" data-toggle="tab" aria-expanded="false">Title English</a>
+								</li>
+								<li><a href="#titleCN" data-toggle="tab" aria-expanded="false">Title Chinese</a>
+								</li>
+							</ul>
+
+							<div class="tab-content">
+								<div class="tab-pane fade active in" id="titleTH">
+									<input name="titleTH" class="form-control" value="{{titleTH}}">
+								</div>
+								<div class="tab-pane fade" id="titleEN">
+									<input name="titleEN" class="form-control" value="{{titleEN}}">
+								</div>
+								<div class="tab-pane fade" id="titleCN">
+									<input name="titleCN" class="form-control" value="{{titleCN}}">
+								</div>
+							</div>
+						</div>
+
+						<div class="multilanguage">
+							<ul class="nav nav-tabs">
+								<li class="active"><a href="#subTitleTH" data-toggle="tab"  aria-expanded="">Sub-Title Thai</a>
+								</li>
+								<li><a href="#subTitleEN" data-toggle="tab" aria-expanded="false">Sub-Title English</a>
+								</li>
+								<li><a href="#subTitleCN" data-toggle="tab" aria-expanded="false">Sub-Title Chinese</a>
+								</li>
+							</ul>
+
+							<div class="tab-content">
+								<div class="tab-pane fade active in" id="subTitleTH">
+									<input name="subTitleTH" class="form-control" value="{{subTitleTH}}">
+								</div>
+								<div class="tab-pane fade" id="subTitleEN">
+									<input name="subTitleEN" class="form-control" value="{{subTitleEN}}">
+								</div>
+								<div class="tab-pane fade" id="subTitleCN">
+									<input name="subTitleCN" class="form-control" value="{{subTitleCN}}">
+								</div>
+							</div>
+						</div>
+
+						<div class="multilanguage">
+							<ul class="nav nav-tabs">
+								<li class="active"><a href="#topicTH" data-toggle="tab"  aria-expanded="">topic Thai</a>
+								</li>
+								<li><a href="#topicEN" data-toggle="tab" aria-expanded="false">topic English</a>
+								</li>
+								<li><a href="#topicCN" data-toggle="tab" aria-expanded="false">topic Chinese</a>
+								</li>
+							</ul>
+
+							<div class="tab-content">
+								<div class="tab-pane fade active in" id="topicTH">
+									<input name="topicTH" class="form-control" value="{{topicTH}}">
+								</div>
+								<div class="tab-pane fade" id="topicEN">
+									<input name="topicEN" class="form-control" value="{{topicEN}}">
+								</div>
+								<div class="tab-pane fade" id="topicCN">
+									<input name="topicCN" class="form-control" value="{{topicCN}}">
+								</div>
+							</div>
+						</div>
+
+						<div class="multilanguage">
+							<ul class="nav nav-tabs">
+								<li class="active"><a href="#definitionTH" data-toggle="tab"  aria-expanded="">definition Thai</a>
+								</li>
+								<li><a href="#definitionEN" data-toggle="tab" aria-expanded="false">definition English</a>
+								</li>
+								<li><a href="#definitionCN" data-toggle="tab" aria-expanded="false">definition Chinese</a>
+								</li>
+							</ul>
+
+							<div class="tab-content">
+								<div class="tab-pane fade active in" id="definitionTH">
+									<textarea id="tdefinitionTH" name="definitionTH" class="form-control" rows="3">{{definitionTH}}</textarea>
+								</div>
+								<div class="tab-pane fade" id="definitionEN">
+									<textarea id="tdefinitionEN" name="definitionEN" class="form-control" rows="3">{{definitionEN}}</textarea>
+								</div>
+								<div class="tab-pane fade" id="definitionCN">
+									<textarea id="tdefinitionCN" name="definitionCN" class="form-control" rows="3">{{definitionCN}}</textarea>
+								</div>
+							</div>
+						</div>
+
+						<div class="multilanguage">
+							<ul class="nav nav-tabs">
+								<li class="active"><a href="#ingredientTH" data-toggle="tab"  aria-expanded="">ingredient Thai</a>
+								</li>
+								<li><a href="#ingredientEN" data-toggle="tab" aria-expanded="false">ingredient English</a>
+								</li>
+								<li><a href="#ingredientCN" data-toggle="tab" aria-expanded="false">ingredient Chinese</a>
+								</li>
+							</ul>
+
+							<div class="tab-content">
+								<div class="tab-pane fade active in" id="ingredientTH">
+									<textarea id="tingredientTH" name="ingredientTH" class="form-control ckeditor" rows="3">{{ingredientTH}}</textarea>
+								</div>
+								<div class="tab-pane fade" id="ingredientEN">
+									<textarea id="tingredientEN" name="ingredientEN" class="form-control ckeditor" rows="3">{{ingredientEN}}</textarea>
+								</div>
+								<div class="tab-pane fade" id="ingredientCN">
+									<textarea id="tingredientCN" name="ingredientCN" class="form-control ckeditor" rows="3">{{ingredientCN}}</textarea>
+								</div>
+							</div>
+						</div>
+
+						<div class="multilanguage">
+							<ul class="nav nav-tabs">
+								<li class="active"><a href="#howtoTH" data-toggle="tab"  aria-expanded="">How-To Thai</a>
+								</li>
+								<li><a href="#howtoEN" data-toggle="tab" aria-expanded="false">How-To English</a>
+								</li>
+								<li><a href="#howtoCN" data-toggle="tab" aria-expanded="false">How-To Chinese</a>
+								</li>
+							</ul>
+
+							<div class="tab-content">
+								<div class="tab-pane fade active in" id="howtoTH">
+									<textarea id="thowtoTH" name="howtoTH" class="form-control ckeditor" rows="3">{{howtoTH}}</textarea>
+								</div>
+								<div class="tab-pane fade" id="howtoEN">
+									<textarea id="thowtoEN" name="howtoEN" class="form-control ckeditor" rows="3">{{howtoEN}}</textarea>
+								</div>
+								<div class="tab-pane fade" id="howtoCN">
+									<textarea id="thowtoCN" name="howtoCN" class="form-control ckeditor" rows="3">{{howtoCN}}</textarea>
+								</div>
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label class="checkbox-inline">
+								<input type="checkbox" name="AFF" value="1" data-value="{{AFF}}">Available for free
+							</label>
+							<div class="price-selection" data-value="{{coursePrice}}">
+								<label class="checkbox-inline">
+									<input type="checkbox" name="coursePrice" value="1">Course Price
+								</label>
+								<label class="checkbox-inline">
+									<input type="checkbox" name="ownPrice" value="2" checked="checked">Menu Price
+								</label>
+							</div>
+						</div>
+
+						<div class="price-info">
+							<div class="form-group input-group price">
+								<span name="price" class="input-group-addon">BAHT</span>
+								<input type="text" name="price" class="form-control" placeholder="Price" value="{{price}}">
+							</div>
+							<div class="form-group input-group discount">
+								<input type="text" name="discount" class="form-control" placeholder="Discount" value="{{discount}}">
+								<span class="input-group-addon">%</span>
+							</div>
+						</div>
+					
+						<button id="editMenuInfo" type="button" class="btn btn-outline btn-primary btn-lg btn-block">Save</button>
+
+						</form>
+
+
+					</div>
+
+					<div class="tab-pane fade" id="step2">
+						<input id="menuId" value="{{ID}}" style="display:none;">
+
+						<!-- display video -->
+
+						<div class="panel panel-primary col-xs-3 margin-100{{^video}} hide{{/video}}">
+							<div class="panel-heading">
+								<div class="row">
+									<div class="col-xs-3">
+										<i class="fa fa-video-camera fa-5x"></i>
+									</div>
+									{{#video}}
+									<div class="col-xs-9 text-overflow">
+										<div>{{{mediaPath}}}</div>
+									</div>
+									{{/video}}
+									{{^video}}
+										<div class="col-xs-9 text-overflow">
+											<div></div>
+										</div>
+									{{/video}}
+								</div>
+							</div>
+							<a href="#">
+								<div class="panel-footer">
+									<button id="dUpload" type="button" class="btn btn-default" style="width:100%;">Delete</button>
+								</div>
+							</a>
+						</div>
+
+						<div id="editStep2">
+							<div class="form-group file-selection">
+								<label class="radio-inline">
+									<input type="radio" name="path" id="embeded" value="option1" checked="">Embedded File
+								</label>
+								<label class="radio-inline">
+									<input type="radio" name="youtube" id="youtube" value="option2">Upload from youtube
+								</label>
+							</div>
+							
+							<div class="form-group btn-file">
+								<form id="uploadEmbeded">
+
+									<input id="embedded" name="embedded" type="file">
+									<button id="fUpload" type="button" class="btn btn-default">Upload</button>
+								</form>
+							</div>
+							<div class="form-group video-group">
+								<input type="text" class="form-control">
+								<button id="yUpload" type="button" class="btn btn-default">Upload</button>
+							</div>
+
+							<!-- Subtitle -->
+							<div class="panel panel-default">
+								<div class="panel-heading">
+									Subtitle
+								</div>
+								<div class="panel-body">
+									<form id="uploadSubtitles">
+										<div class="col-sm-12">
+											<div name="lsubth" class="col-sm-4 subtitle{{^subtitles}} hide{{/subtitles}}">{{{subtitles.subtitleTH}}}</div>
+											<div name="lsuben" class="col-sm-4 subtitle{{^subtitles}} hide{{/subtitles}}">{{{subtitles.subtitleEN}}}</div>
+											<div name="lsubcn" class="col-sm-4 subtitle{{^subtitles}} hide{{/subtitles}}">{{{subtitles.subtitleCN}}}</div>
+										</div>
+										<div class="col-sm-12">
+											<div class="col-sm-4">
+												<div class="form-group">
+													<label>Thai Subtitle</label>
+													<input name="subth" type="file">
+												</div>
+											</div>
+											<div class="col-sm-4">
+												<div class="form-group">
+													<label>English Subtitle</label>
+													<input name="suben" type="file">
+												</div>
+											</div>
+											<div class="col-sm-4">
+												<div class="form-group">
+													<label>Chinese Subtitle</label>
+													<input name="subcn" type="file">
+												</div>
+											</div>
+										</div>
+										<div class="col-sm-12">
+											<button id="subUpload" type="button" class="btn btn-default">Upload Subtitle</button>
+										</div>
+									</form>
+								</div>
+							</div>
+
+						</div>
+
+						<div id="target" class="loading hide">
+							<div class="loading-overlay">
+								<p class="loading-spinner">
+									<span class="loading-icon"><img src="http://localhost:8888/food_course/assets/images/spinner.gif"></span>
+									<span class="loading-text">uploading</span>
+								</p>
+							</div>
+						</div>
+
+					</div>
+
+					<div class="tab-pane fade" id="step3">
+						<input id="menuId" value="{{ID}}" style="display:none;">
+						<div class="panel panel-primary col-xs-5">
+							<div class="panel-heading">
+								<div class="row">
+									{{#coverImage}}
+									<div class="col-xs-3">
+										<img src="{{mediaPath}}" style="max-height: 225px; max-width: 300px;">
+									</div>
+									{{/coverImage}}
+									{{^coverImage}}
+									<div class="col-xs-3">
+										<img src="" style="max-height: 225px; max-width: 300px;">
+									</div>
+									{{/coverImage}}
+								</div>
+							</div>
+						</div>
+
+						<div id="editStep3" class="form-group btn-file">
+							<form>
+							<input id="cover" name="cover" type="file">
+							<button id="cUpload" type="button" class="btn btn-default">Upload</button>
+							</form>
+							<div id="menutarget" class="loading hide">
+							<div class="loading-overlay">
+								<p class="loading-spinner">
+									<span class="loading-icon"><img src="http://localhost:8888/food_course/assets/images/spinner.gif"></span>
+									<span class="loading-text">uploading</span>
+								</p>
+							</div>
+						</div>
+						</div>
+					</div>
+
+					{{/menuContent}}
+				</div>
+			</div>
+
+		{{/edit}}
+
+	</div>
+	<!-- /.container-fluid -->
+
+</div>
+
+</div>
+
+{{> footer}}
+>>>>>>> Stashed changes

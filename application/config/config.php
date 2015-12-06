@@ -357,6 +357,12 @@ $config['rewrite_short_tags'] = FALSE;
 */
 $config['proxy_ips'] = '';
 
+<<<<<<< Updated upstream
+=======
+$config['client_id'] = 'AbB1Dj_1RUQHM1GSvyo6JI7OAsshNa6AnjKAquVfFcCRffkOWXzKXYAVqjfvORTP_JiW21Ab2w4UX5Jt';
+$config['client_secret'] = 'ENYSgJD0M7XqYgxav1B6qyplRru0WNBupKPdlzgBAT8DyPrZeHhObS33npUE2LDdDQc8jl8lgP6zf4Dk';
+
+>>>>>>> Stashed changes
 
 /* End of file config.php */
 /* Location: ./application/config/config.php */

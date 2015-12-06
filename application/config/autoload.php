@@ -109,7 +109,22 @@ $autoload['language'] = array();
 |
 */
 
+<<<<<<< Updated upstream
 $autoload['model'] = array('admin_model', 'course_model');
+=======
+$autoload['model'] = array(
+	'admin_model',
+	'course_model',
+	'menu_model',
+	'student_model',
+	'payment_model',
+	'media_model',
+	'country_model',
+	'review_model',
+	'email_model',
+	'subtitle_model'
+	);
+>>>>>>> Stashed changes
 
 
 /* End of file autoload.php */

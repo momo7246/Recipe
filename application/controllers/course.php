@@ -1,5 +1,9 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
+<<<<<<< Updated upstream
+=======
+
+>>>>>>> Stashed changes
 class Course extends Base_Controller {
 
 	protected $table = 'Course';

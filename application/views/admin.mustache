@@ -9,9 +9,9 @@
 				<div class="row">
 					<div class="col-lg-12">
 						<h1 class="page-header">
-							Manage Admin
+							Manage Users
 
-							<a href="/food_course/admin/addAdmin" class="btn btn-primary btn-lg" role="button">Add Admin</a>
+							<a href="/food_course/admin/addStudent" class="btn btn-primary btn-lg" role="button">Add Users</a>
 						</h1>
 					</div>
 				</div>
@@ -24,12 +24,17 @@
 					<div class="col-lg-12">
 						{{#status.update}}
 							<div class="alert alert-success">
+<<<<<<< Updated upstream
 			                    Successful Edited Admin <a href="/food_course/admin" class="alert-link">Back to admin page</a>
 			                </div>
+=======
+								Successful Edited Users <a href="/food_course/admin" class="alert-link">Back to admin page</a>
+							</div>
+>>>>>>> Stashed changes
 						{{/status.update}}
 
-						{{#admin}}
-						<form action="/food_course/admin/updateAdmin/{{ID}}">
+						{{#student}}
+						<form action="/food_course/admin/updateStudent/{{ID}}">
 							<div class="col-xs-6">
 
 								<div class="panel panel-default">
@@ -39,6 +44,7 @@
 	                            	<div class="panel-body">
 										<div class="form-group">
 											<label>Name</label>
+<<<<<<< Updated upstream
 											<input class="form-control" value="{{name}}" name="name"/>
 										</div>
 										<div class="form-group">
@@ -48,6 +54,17 @@
 										<div class="form-group">
 											<label>Email</label>
 											<input class="form-control" value="{{email}}" name="email"/>
+=======
+											<input class="form-control" value="{{Name}}" name="name" required/>
+										</div>
+										<div class="form-group">
+											<label>Surname</label>
+											<input class="form-control" value="{{Surname}}" name="surname" required/>
+										</div>
+										<div class="form-group">
+											<label>Email</label>
+											<input type="email" class="form-control" value="{{Email}}" name="email" required/>
+>>>>>>> Stashed changes
 										</div>
 									</div>
 								</div>
@@ -62,6 +79,7 @@
 	                            	<div class="panel-body">
 										<div class="form-group">
 											<label>Username</label>
+<<<<<<< Updated upstream
 											<input class="form-control" value="{{username}}" name="username"/>
 										</div>
 										<div class="form-group">
@@ -71,12 +89,23 @@
 										<div class="form-group">
 											<label>Password Confirmation</label>
 											<input type="password" class="form-control" value="{{password}}" name="re-password"/>
+=======
+											<input class="form-control" value="{{Username}}" name="username" required/>
+										</div>
+										<div class="form-group">
+											<label>Password</label>
+											<input type="password" class="form-control" value="{{Password}}" name="password" min="5" max="20" required/>
+										</div>
+										<div class="form-group">
+											<label>Password Confirmation</label>
+											<input type="password" class="form-control" value="{{Password}}" name="re-password" min="5" max="20" required/>
+>>>>>>> Stashed changes
 										</div>
 									</div>
 								</div>
 							</div>
 						</form>
-						{{/admin}}
+						{{/student}}
 					</div>
 				
 				{{/edit}}
@@ -100,13 +129,13 @@
 							{{#content}}
 								<tr>
 									<td style="visibility: hidden;">{{ID}}</td>
-									<td>{{name}}</td>
-									<td>{{surname}}</td>
-									<td>{{username}}</td>
-									<td>{{email}}</td>
+									<td>{{Name}}</td>
+									<td>{{Surname}}</td>
+									<td>{{Username}}</td>
+									<td>{{Email}}</td>
 									<td>
-										<a class="btn btn-primary btn-xs" href="/food_course/admin/editAdmin?id={{ID}}">Edit</a>
-										<a class="btn btn-danger btn-xs" href="/food_course/admin/deleteAdmin?id={{ID}}">Delete</a>
+										<a class="btn btn-primary btn-xs" href="/food_course/admin/editStudent?id={{ID}}">Edit</a>
+										<a class="btn btn-danger btn-xs" href="/food_course/admin/deleteStudent?id={{ID}}">Delete</a>
 									</td>
 								</tr>
 							{{/content}}
@@ -143,11 +172,17 @@
 	                {{/status.add}}
 	                {{#status.error}}
 						<div class="alert alert-danger">
+<<<<<<< Updated upstream
 		                    This username is already existed. <a href="/food_course/admin" class="alert-link">Back to admin page</a>
 		                </div>
 	                {{/status.error}}
+=======
+							This {{{status.message}}} is already existed. Please input the new one. <a href="/food_course/admin" class="alert-link">Back to admin page</a>
+						</div>
+					{{/status.error}}
+>>>>>>> Stashed changes
 
-					<form action="/food_course/admin/addNewAdmin">
+					<form action="/food_course/admin/addNewStudent">
 						<div class="col-xs-6">
 							<div class="panel panel-default">
                             	<div class="panel-heading">
@@ -198,11 +233,36 @@
 
 				{{#delete}}
 
+<<<<<<< Updated upstream
 					{{#status.delete}}
 						<div class="alert alert-success">
 		                    Successful Deleted Admin <a href="/food_course/admin" class="alert-link">Back to admin page</a>
 		                </div>
 	                {{/status.delete}}
+=======
+					<div class="alert alert-success{{^status.delete}} hide{{/status.delete}}">
+						Successful Deleted User <a href="/food_course/admin" class="alert-link">Back to admin page</a>
+					</div>
+
+					{{#hasPayment}}
+						<div class="modal fade in" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="false" style="display: block;">
+							<div class="modal-dialog">
+								<div class="modal-content">
+									<div class="modal-body">
+										<input value="{{id}}" style="display:none;">
+										This user has {{count}} enrollment. When delete process is proceeded the payment record will be deleted as well. Do you want to continue this process?
+									</div>
+									<div class="modal-footer">
+										<button id="deleteStudent" type="button" class="btn btn-default">Yes</button>
+										<button id="closeModal" type="button" class="btn btn-default">No</button>
+									</div>
+								</div>
+								<!-- /.modal-content -->
+							</div>
+							<!-- /.modal-dialog -->
+						</div>
+					{{/hasPayment}}
+>>>>>>> Stashed changes
 
 
 				{{/delete}}
